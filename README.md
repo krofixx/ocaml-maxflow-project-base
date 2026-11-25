@@ -1,13 +1,6 @@
-Base project for Ocaml project on Ford-Fulkerson. This project contains some simple configuration files to facilitate editing Ocaml in VSCode.
-
-To use, you should install the *OCaml Platform* extension in VSCode.
-Then open VSCode in the root directory of this repository (command line: `code path/to/ocaml-maxflow-project`).
-
-Features :
- - full compilation as VSCode build task (Ctrl+Shift+b)
- - highlights of compilation errors as you type
- - code completion
- - view of variable types
+For next time:
+- implement a DFS recursive function that finds a path in a graph
+- implement ford f... algorithm
 
 
 A [`Makefile`](Makefile) provides some useful commands:
