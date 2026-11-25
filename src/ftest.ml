@@ -20,7 +20,7 @@ let () =
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *) 
   
   let infile = Sys.argv.(1)
-  and outfile = Sys.argv.(4)
+  and _outfile = Sys.argv.(4)
   
   (* These command-line arguments are not used for the moment. *)
   and _source = int_of_string Sys.argv.(2)
@@ -30,10 +30,15 @@ let () =
   (* Open file *)
   (* let graph = from_file infile in *)
 
-  let graph = gmap (from_file infile) (fun _a -> ":)") in
+  let graph = gmap (from_file infile) int_of_string in
+
+  let graph2 = add_arc graph 0 1 11000 in
+  let graph3 = add_arc graph2 2 5 1000 in
+
+  let final_graph = gmap (graph3) string_of_int in
   
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph in
+  let () = export "test/test1.txt" final_graph in
 
   ()
 

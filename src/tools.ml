@@ -9,4 +9,7 @@ let gmap gr f =
   e_fold gr aux (clone_nodes gr) 
 (* Replace _gr and _f by gr and f when you start writing the real function. *)
 
-let add_arc _gr _idsrc _iddst _w = assert false
+let add_arc gr idsrc iddst w = 
+  match find_arc gr idsrc iddst with
+  | None -> new_arc gr {src=idsrc; tgt=iddst; lbl=w}
+  | Some a -> new_arc gr {a with lbl=a.lbl+w}
